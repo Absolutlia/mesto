@@ -1,0 +1,10 @@
+.profile__titles {
+    max-width: 300px;
+   }
+
+@media screen and (max-width: 650px) {
+    .profile__titles {
+        max-width: 200px;
+        padding-left: 0;
+    }
+}

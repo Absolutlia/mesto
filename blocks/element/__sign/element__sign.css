@@ -1,0 +1,8 @@
+.element__sign {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 25px 15px 31px 21px;
+}
+
