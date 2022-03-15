@@ -13,7 +13,7 @@
     line-height: 22px;
     letter-spacing: 0em;
     text-align: center;
-    margin: 18px 36px 0;
+    margin: 18px auto 0;
 }
 
 .popup__submit-button:hover {
