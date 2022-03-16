@@ -1,5 +1,5 @@
 let popup = document.querySelector('.popup');
-let popup__opened = document.querySelector('.popup__opened');
+let popup_opened = document.querySelector('.popup_opened');
 let editButton = document.querySelector('.profile__edit-button');
 let closeButton = document.querySelector('.popup__close-button');
 let addButton = document.querySelector('.profile__add-button');
@@ -14,13 +14,13 @@ editButton.addEventListener('click', function() {
   document.querySelector('.popup').style.display = 'block';
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
-  popup.classList.add('popup__opened');
+  popup.classList.add('popup_opened');
 }
 )
 
 closeButton.addEventListener('click', function() {
   document.querySelector('.popup').style.display = 'none';
-  popup.classList.remove('popup__opened');
+  popup.classList.remove('popup_opened');
 }
 )
 
