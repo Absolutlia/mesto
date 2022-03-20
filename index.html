@@ -26,65 +26,111 @@
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
                 <p class="profile__subtitle">Исследователь океана</p>
               </div>
-              <button class="profile__edit-button" id="button-edit"></button>
+              <button
+                type="button"
+                class="profile__edit-button"
+                id="button-edit"
+                aria-label="Изменить"
+              ></button>
             </div>
           </div>
-          <button class="profile__add-button" id="button-add"></button>
+          <button
+            type="button"
+            class="profile__add-button"
+            id="button-add"
+            aria-label="Добавить"
+          ></button>
         </section>
 
         <section class="elements">
           <ul class="elements__list">
             <li class="element">
-              <img src="images/karachaevsk.jpg" alt="" class="element__image" />
+              <img
+                src="images/karachaevsk.jpg"
+                alt="Карачаево-Черкесия"
+                class="element__image"
+              />
               <div class="element__sign">
-                <p class="element__title">Карачаево-Черкесия</p>
+                <h2 class="element__title">Карачаево-Черкесия</h2>
                 <button
-                  class="element__button-like element__button-like_active"
+                  type="button"
+                  class="element__button-like"
+                  aria-label="Лайк"
                 ></button>
               </div>
             </li>
             <li class="element">
-              <img src="images/elbrus.jpg" alt="" class="element__image" />
+              <img
+                src="images/elbrus.jpg"
+                alt="Гора Эльбрус"
+                class="element__image"
+              />
               <div class="element__sign">
-                <p class="element__title">Гора Эльбрус</p>
+                <h2 class="element__title">Гора Эльбрус</h2>
                 <button
-                  class="element__button-like element__button-like_active"
+                  type="button"
+                  class="element__button-like"
+                  aria-label="Лайк"
                 ></button>
               </div>
             </li>
             <li class="element">
-              <img src="images/dombai.jpg" alt="" class="element__image" />
+              <img
+                src="images/dombai.jpg"
+                alt="Домбай"
+                class="element__image"
+              />
               <div class="element__sign">
-                <p class="element__title">Домбай</p>
+                <h2 class="element__title">Домбай</h2>
                 <button
-                  class="element__button-like element__button-like_active"
+                  type="button"
+                  class="element__button-like"
+                  aria-label="Лайк"
                 ></button>
               </div>
             </li>
             <li class="element">
-              <img src="images/kamchatka.jpg" alt="" class="element__image" />
+              <img
+                src="images/kamchatka.jpg"
+                alt="Камчатка"
+                class="element__image"
+              />
               <div class="element__sign">
-                <p class="element__title">Камчатка</p>
+                <h2 class="element__title">Камчатка</h2>
                 <button
-                  class="element__button-like element__button-like_active"
+                  type="button"
+                  class="element__button-like"
+                  aria-label="Лайк"
                 ></button>
               </div>
             </li>
             <li class="element">
-              <img src="images/kurshskaya-kosa.jpg" alt="" class="element__image">
+              <img
+                src="images/kurshskaya-kosa.jpg"
+                alt="Куршская коса"
+                class="element__image"
+              />
               <div class="element__sign">
-                <p class="element__title">Куршская коса</p>
+                <h2 class="element__title">Куршская коса</h2>
                 <button
-                  class="element__button-like element__button-like_active"
+                  type="button"
+                  class="element__button-like"
+                  aria-label="Лайк"
                 ></button>
               </div>
             </li>
             <li class="element">
-              <img src="images/severniy-ural.jpg" alt="" class="element__image">
+              <img
+                src="images/severniy-ural.jpg"
+                alt="Северный Урал"
+                class="element__image"
+              />
               <div class="element__sign">
-                <p class="element__title">Северный Урал</p>
+                <h2 class="element__title">Северный Урал</h2>
                 <button
-                  class="element__button-like element__button-like_active"
+                  type="button"
+                  class="element__button-like"
+                  aria-label="Лайк"
                 ></button>
               </div>
             </li>
@@ -97,26 +143,37 @@
       </footer>
     </div>
 
-    <div class="popup popup_opened">
+    <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button" type="button" id="button"></button>
+        <button
+          class="popup__close-button"
+          type="button"
+          id="button"
+          aria-label="Закрыть"
+        ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form">
+        <form class="popup__form" name="Профиль">
           <input
-            class="popup__input popup__input-name"
+            class="popup__input popup_input_name"
             name="name"
             type="text"
             value="Жак-Ив Кусто"
             placeholder="Жак-Ив Кусто"
           />
           <input
-            class="popup__input popup__input-info"
+            class="popup__input popup_input_info"
             name="info"
             type="text"
             value="Исследователь океана"
             placeholder="Исследователь океана"
           />
-          <button class="popup__submit-button" type="submit">Сохранить</button>
+          <button
+            class="popup__submit-button"
+            type="submit"
+            aria-label="Сохранить"
+          >
+            Сохранить
+          </button>
         </form>
       </div>
     </div>

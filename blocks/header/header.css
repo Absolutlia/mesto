@@ -5,7 +5,7 @@
     max-width: 880px; /* page similar */
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #545454;
+    border-bottom: 1px solid rgba(54, 54, 54, 0.7);
     min-height: 74px;
 }
 
