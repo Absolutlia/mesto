@@ -57,6 +57,7 @@
                   class="element__button-like"
                   aria-label="Лайк"
                 ></button>
+                <button class="element__trashbin" aria-label="Удалить фотографию"></button>
               </div>
             </li>
             <li class="element">
@@ -72,6 +73,7 @@
                   class="element__button-like"
                   aria-label="Лайк"
                 ></button>
+                <button class="element__trashbin" aria-label="Удалить фотографию"></button>
               </div>
             </li>
             <li class="element">
@@ -87,6 +89,7 @@
                   class="element__button-like"
                   aria-label="Лайк"
                 ></button>
+                <button class="element__trashbin" aria-label="Удалить фотографию"></button>
               </div>
             </li>
             <li class="element">
@@ -102,6 +105,7 @@
                   class="element__button-like"
                   aria-label="Лайк"
                 ></button>
+                <button class="element__trashbin" aria-label="Удалить фотографию"></button>
               </div>
             </li>
             <li class="element">
@@ -117,6 +121,7 @@
                   class="element__button-like"
                   aria-label="Лайк"
                 ></button>
+                <button class="element__trashbin" aria-label="Удалить фотографию"></button>
               </div>
             </li>
             <li class="element">
@@ -132,27 +137,44 @@
                   class="element__button-like"
                   aria-label="Лайк"
                 ></button>
+                <button class="element__trashbin" aria-label="Удалить фотографию"></button>
               </div>
             </li>
           </ul>
         </section>
-      </main>
+        <section>
+          <template class="card-template" id="template">
+            <li class="element">
+              <img src="#" alt="" class="element__image" />
+              <button class="element__trashbin" aria-label="Удалить"></button>
+              <div class="element__sign">
+                <h2 class="element__title"></h2>
+                <button
+                  type="button"
+                  class="element__button-like"
+                  aria-label="Добавить в избранное"
+                ></button>
+              </div>
+            </li>
+          </template>
+        </section>
 
+      </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
     </div>
 
-    <div class="popup">
-      <div class="popup__container">
+    <div id="edit_profile" class="popup popup__edit-profile">
+      <div class="popup__container popup__container_profile`">
         <button
-          class="popup__close-button"
+          class="popup__close-button popup__close-button_profile"
           type="button"
-          id="button"
-          aria-label="Закрыть"
+          id="popup-close-edit-profile"
+          aria-label="Закрыть форму редактирования профиля"
         ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="Profile">
+        <form class="popup__form popup__form_profile" name="Profile">
           <input
             class="popup__input popup__input_type_name"
             name="name"
@@ -177,6 +199,59 @@
         </form>
       </div>
     </div>
-    <script src="./scripts/main.js"></script>
+
+    
+
+    <div id="add_cards" class="popup popup__add-cards">
+      <div class="popup__container popup__container_card">
+        <button
+          class="popup__close-button popup__close-button_card"
+          type="button"
+          id="popup-close-add-card"
+          aria-label="Закрыть форму добавления новой фотографии"
+        ></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form popup__add-cards" name="Add-image">
+          <input
+            class="popup__input popup__input_card_name"
+            name="image-name"
+            type="text"
+            value=""
+            placeholder="Название"
+          />
+          <input
+            class="popup__input popup__input_card_url"
+            name="image-link"
+            type="url"
+            value=""
+            placeholder="Ссылка на картинку"
+          />
+          <button
+            class="popup__submit-button popup__submit-button_card"
+            type="submit"
+            aria-label="Создать"
+          >
+            Создать
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="open_big"
+      class="popup popup__open-image"
+      area-label="просмотр фотографии"
+    >
+      <div class="popup__big-container">
+        <button
+          class="popup__close-button popup__close-button_image"
+          type="button"
+          aria-label="Закрыть фотографию"
+        ></button>
+        <img class="popup__big-image" src="#" alt="" />
+        <h2 class="popup__image-title"></h2>
+      </div>
+    </div>
+  <script defer src="./scripts/main.js"></script>
   </body>
 </html>

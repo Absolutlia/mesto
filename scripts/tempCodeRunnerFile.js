@@ -1,0 +1,1 @@
+const cardImage = card.querySelector(".element__image");
