@@ -87,7 +87,7 @@ function createCard(data) {
 function formAddCardHandler(evt) {
   evt.preventDefault();
   renderCard({ name: inputCardName.value, link: inputCardLink.value });
-  evt.currentTarget.reset();
+  formAddCard.reset();
   closePopup(popupAddCards);
 }
 
