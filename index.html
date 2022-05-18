@@ -69,7 +69,7 @@
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
     </div>
-
+    <!-- Форма 1 редактирование профиля -->
     <div id="edit_profile" class="popup popup_edit-profile">
       <div class="popup__container popup__container_profile`">
         <button
@@ -79,21 +79,31 @@
           aria-label="Закрыть форму редактирования профиля"
         ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form popup__form_profile" name="Profile">
+        <form class="popup__form popup__form_profile" name="Profile" novalidate>
           <input
+                  id="profile-name"
             class="popup__input popup__input_type_name"
             name="name"
             type="text"
             value="Жак-Ив Кусто"
             placeholder="Жак-Ив Кусто"
+            minlength="4"
+            maxlength="20"
+            required
           />
+          <span class="profile-name-error popup__input_type_error"></span>
           <input
+                  id="profile-job"
             class="popup__input popup__input_type_info"
             name="info"
             type="text"
             value="Исследователь океана"
             placeholder="Исследователь океана"
+            minlength="2"
+            maxlength="200"
+            required
           />
+          <span class="profile-job-error popup__input_type_error"></span>
           <button
             class="popup__submit-button"
             type="submit"
@@ -106,7 +116,7 @@
     </div>
 
     
-
+ <!-- Форма 2 добавления новой карточки -->
     <div id="add_cards" class="popup popup_add-cards">
       <div class="popup__container popup__container_card">
         <button
@@ -116,21 +126,29 @@
           aria-label="Закрыть форму добавления новой фотографии"
         ></button>
         <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form popup__add-cards" name="Add-image">
+        <form class="popup__form popup__add-cards" name="Add-image" novalidate>
           <input
+                  id="card-name"
             class="popup__input popup__input_card_name"
             name="image-name"
             type="text"
             value=""
             placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
           />
+          <span class="card-name-error popup__input_type_error"></span>
           <input
+                  id="card-link"
             class="popup__input popup__input_card_url"
             name="image-link"
             type="url"
             value=""
             placeholder="Ссылка на картинку"
+            required
           />
+          <span class="card-link-error popup__input_type_error"></span>
           <button
             class="popup__submit-button popup__submit-button_card"
             type="submit"
@@ -159,5 +177,15 @@
     </div>
   <script src = "./scripts/cards.js"></script>
   <script src="./scripts/main.js"></script>
+  <script src="./scripts/validation.js"></script>
   </body>
 </html>
+
+
+<p>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</p>

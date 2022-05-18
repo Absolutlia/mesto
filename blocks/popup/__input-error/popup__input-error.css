@@ -1,0 +1,19 @@
+.popup__input-error {
+    color: #ff0000;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.25px;
+    z-index: 100;
+    align-self: baseline;
+
+}
+
+@media screen and (max-width: 550px) {
+    .popup__input {
+
+    }}
