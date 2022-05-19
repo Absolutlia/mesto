@@ -2,7 +2,7 @@
 //popups
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCards = document.querySelector(".popup_add-cards");
-const popupOpenImage = document.querySelector(".popup__open-image");
+const popupOpenImage = document.querySelector(".popup_open-image");
 
 //кнопки открытия попапов
 const editProfileButton = document.querySelector(".profile__edit-button");
