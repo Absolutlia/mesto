@@ -2,7 +2,7 @@
 //popups
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupAddCards = document.querySelector(".popup_add-cards");
-const popupOpenImage = document.querySelector(".popup_open-image");
+const popupOpenImage = document.querySelector(".popup__open-image");
 
 //кнопки открытия попапов
 const editProfileButton = document.querySelector(".profile__edit-button");
@@ -67,7 +67,7 @@ function closePopup(popup) {
  };
 
 
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileSubtitle.textContent = jobInput.value;
@@ -75,7 +75,7 @@ function formSubmitHandler(evt) {
 }
 
 function likeCard(evt) {
-  const like = evt.currentTarget.closest('.element__button-like');
+  const like = evt.currentTarget;
   like.classList.toggle('element__button-like_active');
 };
 
@@ -106,11 +106,13 @@ function createCard(data) {
 }
 
 //функция добавления новой карточки
-function formAddCardHandler(evt) {
+function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   renderCard({ name: inputCardName.value, link: inputCardLink.value });
-  evt.currentTarget.reset();
   closePopup(popupAddCards);
+
+  const submitButton = popup.querySelector('popup__submit-button');
+  submitButton.disabled = 'disabled';
 }
 
 //отрисовываем карточку
@@ -134,7 +136,7 @@ renderInitialCards();
 
 //---слушатели---//
 //на кнопке открытия попапа профиля
-editProfileButton.addEventListener("click", function () {
+editProfileButton.addEventListener("click", function() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
   openPopup(popupEditProfile);
@@ -161,9 +163,9 @@ closeImageButton.addEventListener("click", function() {
 });
 
 //на форме редактирования профиля
-formProfile.addEventListener("submit", formSubmitHandler);
+formProfile.addEventListener("submit", handleProfileFormSubmit);
 //на форме добавления карточки
-formAddCard.addEventListener("submit", formAddCardHandler);
+formAddCard.addEventListener("submit", handleAddCardFormSubmit);
 
 //слушатели на клике по overlay для всех попапов
 popupEditProfile.addEventListener('click', closePopupOverlay);

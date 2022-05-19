@@ -3,7 +3,6 @@ const listOfElements = {
     inputSelector: '.popup__input', //form__input
     submitButtonSelector: '.popup__submit-button',
     inactiveButtonClass: 'popup__submit-button_inactive',
-    activeButtonClass: '.popup__submit-button_active',
     inputErrorClass: 'popup__input-type-error', //form__input_type_error
     errorClass: 'popup__input-error' //span аналог form__input-error
 };

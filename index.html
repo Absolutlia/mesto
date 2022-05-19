@@ -80,6 +80,7 @@
         ></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="popup__form popup__form_profile" name="Profile" novalidate>
+          <div class="popup__box">
           <input
                   id="profile-name"
             class="popup__input popup__input_type_name"
@@ -92,6 +93,8 @@
             required
           />
           <span class="profile-name-error popup__input-type-error"></span>
+          </div>
+          <div class="popup__box">
           <input
                   id="profile-job"
             class="popup__input popup__input_type_info"
@@ -104,6 +107,7 @@
             required
           />
           <span class="profile-job-error popup__input-type-error"></span>
+          </div>
           <button
             class="popup__submit-button"
             type="submit"
@@ -127,6 +131,7 @@
         ></button>
         <h2 class="popup__title">Новое место</h2>
         <form class="popup__form popup__add-cards" name="Add-image" novalidate>
+          <div class="popup__box">
           <input
                   id="card-name"
             class="popup__input popup__input_card_name"
@@ -139,6 +144,8 @@
             required
           />
           <span class="card-name-error popup__input-type-error"></span>
+          </div>
+          <div class="popup__box">
           <input
                   id="card-link"
             class="popup__input popup__input_card_url"
@@ -149,6 +156,7 @@
             required
           />
           <span class="card-link-error popup__input-type-error"></span>
+          </div>
           <button
             class="popup__submit-button popup__submit-button_card"
             type="submit"
@@ -162,7 +170,7 @@
 
     <div
       id="open_big"
-      class="popup popup_open-image"
+      class="popup popup__open-image"
       area-label="просмотр фотографии"
     >
       <div class="popup__big-container">
