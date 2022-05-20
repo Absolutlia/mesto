@@ -3,8 +3,8 @@ const listOfElements = {
     inputSelector: '.popup__input', //form__input
     submitButtonSelector: '.popup__submit-button',
     inactiveButtonClass: 'popup__submit-button_inactive',
-    inputErrorClass: 'popup__input-type-error', //form__input_type_error
-    errorClass: 'popup__input-error' //span аналог form__input-error
+    inputErrorClass: 'popup__input-type-error',
+    errorClass: 'popup__input-error' //span
 };
 
 //Ф-я, кот добавляет класс с ошибкой
@@ -40,24 +40,18 @@ const hasInvalidInput = (inputList) => {
     });
 };
 
-//кнопка сабмита
-const disableButton = (button) => {
-    button.classList.add('popup__submit-button_inactive');
-    button.disabled = 'disabled';
-}
-
-
+//кнопка сабмит
 const toggleButtonState = (inputList, buttonElement, obj) => {
 // Если есть хотя бы один невалидный инпут
     if (hasInvalidInput(inputList)) {
-        disableButton(buttonElement); // сделай кнопку неактивной
+        buttonElement.classList.add(obj.inactiveButtonClass);
+        buttonElement.disabled = 'disabled';
        } else {
 // иначе сделай кнопку активной
-        buttonElement.classList.remove('popup__submit-button_inactive');
+        buttonElement.classList.remove(obj.inactiveButtonClass);
         buttonElement.disabled = '';
-}
 };
-
+};
 
 //слушатели
 const setEventListeners = (formElement, obj) => {

@@ -110,8 +110,9 @@ function handleAddCardFormSubmit(evt) {
   evt.preventDefault();
   renderCard({ name: inputCardName.value, link: inputCardLink.value });
   closePopup(popupAddCards);
-
-  const submitButton = popup.querySelector('popup__submit-button');
+  inputCardName.value = '';
+  inputCardLink.value = '';
+  const submitButton = popupAddCards.querySelector('.popup__submit-button');
   submitButton.disabled = 'disabled';
 }
 
