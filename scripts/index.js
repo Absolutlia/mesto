@@ -75,10 +75,8 @@ export const elementList = document.querySelector(".elements__list"); //изна
 export const formProfile = popupEditProfile.querySelector(".popup__form_profile"); /************* */
 export const formAddCard = document.querySelector(".popup__add-cards"); //******
 
-const renderCard = (data) => {
-  console.log(data);
+function renderCard(data) {
   const listItem = new Card(data, '.card-template');
-
   const newCard = listItem.createCard(data);
   return newCard;
 }
@@ -103,12 +101,10 @@ const handleProfileFormSubmit = (evt) => {
 
 //функция добавления новой карточки
 const handleAddCardFormSubmit = (evt) => {
+  const newAddedCard = { name: inputCardName.value, link: inputCardLink.value };
   evt.preventDefault();
 
-  const newAddedCard = { cardName: inputCardName.value, inputCardLink: inputCardLink.value };
-  renderCard(newAddedCard);
-  console.log(newAddedCard);
-
+  elementList.prepend(renderCard(newAddedCard));
   inputCardName.value = ''; //очищение инпутов
   inputCardLink.value = '';
   closePopup(popupAddCards);
@@ -133,7 +129,6 @@ closeProfileButton.addEventListener("click", function () {
 
 //в создании карточки
 addCardButton.addEventListener("click", function () {
-  addCardValidator.resetErrors();
   addCardValidator.toggleButtonState();
   openPopup(popupAddCards)
 });
@@ -153,7 +148,7 @@ formProfile.addEventListener("submit", handleProfileFormSubmit);
 //на форме добавления карточки
 formAddCard.addEventListener("submit", handleAddCardFormSubmit);
 
-//слушатели на клике по overlay для всех попапов
+//слушатели на клике по overlay для всех 
 popupEditProfile.addEventListener('click', closePopupOverlay);
 popupAddCards.addEventListener('click', closePopupOverlay);
 popupOpenImage.addEventListener('click', closePopupOverlay);
@@ -161,5 +156,3 @@ popupOpenImage.addEventListener('click', closePopupOverlay);
 
 /*
 const container = document.querySelector('.element'); //карточки template */
-
-
