@@ -1,6 +1,7 @@
-//<script src = "./scripts/cards.js"></script>
-//<script src="./scripts/main.js"></script>
-//<script src="./scripts/validation.js"></script>
+//popup с увеличивающейся картинкой
+export const popupOpenImage = document.querySelector(".popup_open-image");
+export const bigImage = popupOpenImage.querySelector(".popup__big-image");
+export const bigImageTitle = popupOpenImage.querySelector(".popup__image-title");
 
 //закрытие по esc
 export const closePopupEsc = (evt) => {
@@ -29,9 +30,5 @@ export const closePopup = (popup) => {
   document.removeEventListener('keyup', closePopupEsc);
 };
 
-//popup с увеличивающейся картинкой
-export const popupOpenImage = document.querySelector(".popup_open-image");
-export const bigImage = popupOpenImage.querySelector(".popup__big-image");
-export const bigImageTitle = popupOpenImage.querySelector(".popup__image-title");
 
 

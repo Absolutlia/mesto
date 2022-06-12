@@ -69,23 +69,23 @@ export const inputCardLink = popupAddCards.querySelector(".popup__input_card_url
 
 //template
 export const elementList = document.querySelector(".elements__list"); //изначальный список карточек ul
-export const cardTemplate = document.querySelector('.card-template').content;
+//export const cardTemplate = document.querySelector('.card-template').content.querySelector('.element');
 
 //формы
 export const formProfile = popupEditProfile.querySelector(".popup__form_profile"); /************* */
 export const formAddCard = document.querySelector(".popup__add-cards"); //******
 
-const cardContainer = document.querySelector('.elements'); //список всех карточек
+const renderCard = (data) => {
+  console.log(data);
+  const listItem = new Card(data, '.card-template');
 
-initialCards.forEach((item) => { // функция-итератор карточек
-  cardContainer.append(renderCard(item.cardName, item.cardLink)); // что-бы не дублировать код используем функцию createCard
-});
-
-function renderCard(cardName, cardLink) {
-  const listItem = new Card(cardName, cardLink, '.card-template');
-  const newCard = listItem.createCard();
+  const newCard = listItem.createCard(data);
   return newCard;
 }
+
+initialCards.forEach((data) => { // функция-итератор карточек
+  elementList.prepend(renderCard(data)); // что-бы не дублировать код используем функцию createCard
+});
 
 const editProfileValidator = new FormValidator(validationConfig, formProfile);
 const addCardValidator = new FormValidator(validationConfig, formAddCard);
@@ -105,8 +105,9 @@ const handleProfileFormSubmit = (evt) => {
 const handleAddCardFormSubmit = (evt) => {
   evt.preventDefault();
 
-  const newAddedCard = { cardName: inputCardName.value, cardLink: inputCardLink.value };
+  const newAddedCard = { cardName: inputCardName.value, inputCardLink: inputCardLink.value };
   renderCard(newAddedCard);
+  console.log(newAddedCard);
 
   inputCardName.value = ''; //очищение инпутов
   inputCardLink.value = '';

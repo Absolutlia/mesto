@@ -1,10 +1,10 @@
 import { bigImage, bigImageTitle, popupOpenImage, openPopup } from './utils.js';
 
 export class Card {
-    constructor(cardName, cardLink, cardSelector) {
-        //this._cardSelector = cardSelector; //document.querySelector('.element').content;
-        this._cardName = cardName;
-        this._cardLink = cardLink;
+    constructor(data) {
+        //this._cardSelector = cardSelector; //document.querySelector('.card-template').content;
+        this._name = data.name;
+        this._link = data.link;
     }
 
     _handleLikeCard = () => {
@@ -26,9 +26,9 @@ export class Card {
 
     _handleViewImage = () => {
         openPopup(popupOpenImage);
-        bigImage.src = this._cardLink;
-        bigImage.alt = this._cardName;
-        bigImageTitle.textContent = this._cardName;
+        bigImage.src = this._link;
+        bigImage.alt = this._name;
+        bigImageTitle.textContent = this._name;
     }
 
     createCard() {
@@ -36,10 +36,10 @@ export class Card {
         this._cardImage = this._cardElement.querySelector(".element__image");
         this._setEventListeners();
 
-        this._cardImage.src = this._cardLink;
-        this._cardImage.alt = this._cardName;
-        this._cardElement.querySelector('.element__title').textContent = this._cardName;
-        
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
+        this._cardElement.querySelector('.element__title').textContent = this._name;
+
         return this._cardElement;
     }
 
@@ -50,7 +50,7 @@ export class Card {
         this._cardElement.querySelector(".element__trashbin").addEventListener("click", () => {
             this._handleDeleteCard();
         });
-        this._cardElement.querySelector(".element__image").addEventListener("click", () => {
+        this._cardImage.addEventListener("click", () => {
             this._handleViewImage();
         });
     }
