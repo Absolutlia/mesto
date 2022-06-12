@@ -1,0 +1,57 @@
+import { bigImage, bigImageTitle, popupOpenImage, openPopup } from './utils.js';
+
+export class Card {
+    constructor(cardName, cardLink, cardSelector) {
+        //this._cardSelector = cardSelector; //document.querySelector('.element').content;
+        this._cardName = cardName;
+        this._cardLink = cardLink;
+    }
+
+    _handleLikeCard = () => {
+        this._cardElement.querySelector('.element__button-like').classList.toggle('element__button-like_active');
+    };
+
+    _handleDeleteCard = () => {
+        this._cardElement.remove();
+    };
+
+    _getTemplate() {
+        const element = document
+            .querySelector('.card-template')
+            .content
+            .querySelector('.element')
+            .cloneNode(true);
+        return element;
+    };
+
+    _handleViewImage = () => {
+        openPopup(popupOpenImage);
+        bigImage.src = this._cardLink;
+        bigImage.alt = this._cardName;
+        bigImageTitle.textContent = this._cardName;
+    }
+
+    createCard() {
+        this._cardElement = this._getTemplate();
+        this._cardImage = this._cardElement.querySelector(".element__image");
+        this._setEventListeners();
+
+        this._cardImage.src = this._cardLink;
+        this._cardImage.alt = this._cardName;
+        this._cardElement.querySelector('.element__title').textContent = this._cardName;
+        
+        return this._cardElement;
+    }
+
+    _setEventListeners() {
+        this._cardElement.querySelector(".element__button-like").addEventListener("click", () => {
+            this._handleLikeCard();
+        });
+        this._cardElement.querySelector(".element__trashbin").addEventListener("click", () => {
+            this._handleDeleteCard();
+        });
+        this._cardElement.querySelector(".element__image").addEventListener("click", () => {
+            this._handleViewImage();
+        });
+    }
+}

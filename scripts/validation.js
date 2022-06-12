@@ -1,4 +1,4 @@
-const listOfElements = {
+const validationConfig = {
     formSelector: '.popup__form', // form
     inputSelector: '.popup__input', //form__input
     submitButtonSelector: '.popup__submit-button',
@@ -42,12 +42,10 @@ const hasInvalidInput = (inputList) => {
 
 //кнопка сабмит
 const toggleButtonState = (inputList, buttonElement, obj) => {
-// Если есть хотя бы один невалидный инпут
     if (hasInvalidInput(inputList)) {
         buttonElement.classList.add(obj.inactiveButtonClass);
         buttonElement.disabled = 'disabled';
        } else {
-// иначе сделай кнопку активной
         buttonElement.classList.remove(obj.inactiveButtonClass);
         buttonElement.disabled = '';
 };
@@ -84,7 +82,7 @@ const enableValidation = (obj) => {
     });
 };
 
-enableValidation(listOfElements);
+enableValidation(validationConfig);
 
 
 

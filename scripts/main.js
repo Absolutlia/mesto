@@ -91,17 +91,14 @@ function createCard(data) {
   const likeButton = card.querySelector(".element__button-like");
   const trashButton = card.querySelector(".element__trashbin");
 
-  cardName.textContent = data.name;
+  cardName.textContent = data.name; //записываем передаваемый текст
   cardImage.src = data.link;
   cardImage.alt = data.name;
 
-  
-  //слушатели
   likeButton.addEventListener("click", likeCard);
   trashButton.addEventListener("click", deleteCard);
   cardImage.addEventListener("click", viewImage);
 
-  //возвращаем карточку
   return card;
 }
 
@@ -112,7 +109,7 @@ function handleAddCardFormSubmit(evt) {
   closePopup(popupAddCards);
   inputCardName.value = '';
   inputCardLink.value = '';
-  const submitButton = popupAddCards.querySelector('.popup__submit-button');
+  const submitButton = popupAddCards.querySelector('.popup__submit-button'); //evt.submitter
   submitButton.disabled = 'disabled';
 }
 
