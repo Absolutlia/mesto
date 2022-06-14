@@ -1,10 +1,7 @@
-//popup с увеличивающейся картинкой
-export const popupOpenImage = document.querySelector(".popup_open-image");
-export const bigImage = popupOpenImage.querySelector(".popup__big-image");
-export const bigImageTitle = popupOpenImage.querySelector(".popup__image-title");
 
-//закрытие по esc
-export const closePopupEsc = (evt) => {
+const popups = document.querySelectorAll('.popup');
+
+const closePopupEsc = (evt) => {
   evt.preventDefault();
   if (evt.key === 'Escape') {
     const popupOpened = document.querySelector('.popup_opened');
@@ -12,23 +9,25 @@ export const closePopupEsc = (evt) => {
   }
 };
 
-// закрытие по клику на оверлей
-export const closePopupOverlay = (evt) => {
-  if (evt.target.classList.contains('popup_opened')) {
-    closePopup(evt.target);
-  }
-};
-
 //функции открытия и закрытия попапов
-export const openPopup = (popup) => {
-  popup.classList.add("popup_opened");
+export function openPopup(popups) {
+  popups.classList.add("popup_opened");
   document.addEventListener('keyup', closePopupEsc);
 };
 
-export const closePopup = (popup) => {
-  popup.classList.remove("popup_opened");
+export function closePopup(popups) {
+  popups.classList.remove("popup_opened");
   document.removeEventListener('keyup', closePopupEsc);
 };
 
-
-
+//объединяем обработчики крестиков и overlay
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      closePopup(popup)
+    }
+    if (evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup)
+    }
+  });
+});
