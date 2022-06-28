@@ -2,7 +2,6 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="pages/index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
   </head>
@@ -10,14 +9,14 @@
   <body class="body">
     <div class="page">
       <header class="header">
-        <img class="logo" src="images/Mesto-logotype.svg" alt="Логотип сайта" />
+        <img class="logo" src="<%=require('./images/Mesto-logotype.svg')%>" alt="Логотип сайта" />
       </header>
 
       <main class="content">
         <section class="profile">
           <div class="profile__info">
             <img
-              src="images/Kusto.jpg"
+              src="<%=require('./images/Kusto.jpg')%>"
               alt="аватар пользователя"
               class="profile__avatar"
             />
@@ -184,7 +183,7 @@
       </div>
     </div>
   
-  <script type = 'module' src = '/scripts/index.js'></script>
+
   </body>
 </html>
 
