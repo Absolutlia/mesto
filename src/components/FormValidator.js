@@ -27,7 +27,6 @@ export class FormValidator {
 
     _isValid(inputElement) {
         if (!inputElement.validity.valid) {
-            //передадим сообще об ошибке
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
             this._hideInputError(inputElement)
@@ -70,9 +69,6 @@ export class FormValidator {
 
 
     enableValidation() {
-        this._form.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
         this._setEventListeners();
     };
 
@@ -81,7 +77,6 @@ export class FormValidator {
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement); //очищаем ошибки, делаем кнопку неактивной
         });
-
-    }
+     }
 };
 

@@ -1,6 +1,5 @@
 import { Popup } from './Popup.js';
 
-
 export class PopupWithForm extends Popup {
     constructor(popupSelector, { handleSubmit }) {
         super(popupSelector);
@@ -12,8 +11,7 @@ export class PopupWithForm extends Popup {
 
     _getInputValues() { // получаем значения инпутов
         const inputValues = {};
-        console.log(this._inputs);
-        this._inputs.forEach((input) => {
+          this._inputs.forEach((input) => {
             inputValues[input.name] = input.value;
         })
         return inputValues;
@@ -27,7 +25,7 @@ export class PopupWithForm extends Popup {
         });
     }
 
-    close() { // перезапишем метод закрытия, будем сбрасывать форму при закрытия модалок
+    close() { 
         super.close();
         this._form.reset();
     }

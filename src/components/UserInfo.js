@@ -3,7 +3,7 @@ export class UserInfo {
         this._nameElement = document.querySelector(profileNameSelector);
         this._jobElement = document.querySelector(profileJobSelector);
     }
-    getUserInfo(name, job) {
+    getUserInfo() {
         return {
             name: this._nameElement.textContent,
             job: this._jobElement.textContent

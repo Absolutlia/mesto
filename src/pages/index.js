@@ -1,14 +1,14 @@
-import './pages/index.css';
-import { Card } from './components/Card';
-import { FormValidator } from './components/FormValidator.js';
-import { Section } from './components/Section.js';
-import { PopupWithImage } from './components/PopupWithImage.js';
-import { PopupWithForm } from './components/PopupWithForm.js';
-import { UserInfo } from './components/UserInfo.js';
+import '../pages/index.css';
+import { Card } from '../components/Card';
+import { FormValidator } from '../components/FormValidator.js';
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js';
 import {
   initialCards,
   validationConfig, editProfileButton, addCardButton, nameInput, jobInput, formProfile, formAddCard
-} from './utils/constants.js'
+} from '../utils/constants.js'
 
 export const imagePopup = new PopupWithImage('.popup_open-image');
 
@@ -24,8 +24,7 @@ function handleCardClick(cardName, cardLink) { //ф-я вызывается пр
 
 function createCard(cardName, cardLink) { //renderCard
   const listItem = new Card(cardName, cardLink, '.card-template', handleCardClick);
-  const newCard = listItem.generateCard();
-  return newCard;
+  return listItem.generateCard();
 }
 
 const cardList = new Section({ // создаем экземпляр класса Section для отрисовки всех карточек + добавление новой
@@ -36,12 +35,7 @@ const cardList = new Section({ // создаем экземпляр класса
   }
 }, '.elements__list');
 
-
-
 cardList.renderItems();
-
-console.log(initialCards);
-console.log(cardList);
 
 const addCardPopup = new PopupWithForm('.popup_add-cards', {
   handleSubmit: (data) => {
@@ -50,7 +44,6 @@ const addCardPopup = new PopupWithForm('.popup_add-cards', {
     const card = createCard(cardName, cardLink); // 
     cardList.addItem(card); // добавляем карточку методом addItem класса Section
     addCardPopup.close();
-    // validateCardAdd.deactivateValidation();
   }
 })
 
@@ -75,7 +68,7 @@ editProfilePopup.setEventListeners();
 //---слушатели---//
 editProfileButton.addEventListener("click", function () {
   editProfilePopup.open();
-  editProfileValidator.disableSubmitButton();
+  editProfileValidator.resetValidation();
   const { name, job } = userInfo.getUserInfo();
 
   nameInput.value = name;
@@ -83,6 +76,6 @@ editProfileButton.addEventListener("click", function () {
 });
 
 addCardButton.addEventListener("click", function () {
-  addCardValidator.disableSubmitButton();
+  addCardValidator.resetValidation();
   addCardPopup.open();
 });

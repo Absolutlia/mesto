@@ -2,6 +2,7 @@ export class Popup {
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector); //нашли попап
         this._handleEscClose = this._handleEscClose.bind(this); //потеря контекста
+        
     }
 
     open() {
@@ -30,8 +31,4 @@ export class Popup {
             }
         });
     };
-
-    //if(!evt.target.closest('.popup_opened') || evt.target === closeButton) {
-    //    this.close()
-
 }
