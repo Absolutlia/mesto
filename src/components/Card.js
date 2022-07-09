@@ -1,20 +1,37 @@
 export class Card {
-    constructor(cardName, cardLink, cardSelector, handleCardClick) {
+    constructor(cardName, cardLink, likes, cardSelector, handleCardClick, handleDeleteClick) {
         this._cardName = cardName;
         this._cardLink = cardLink;
         this._cardSelector = cardSelector;
-        this._handleCardClick = handleCardClick; //приняли снаружи
-    }
 
+        this._handleCardClick = handleCardClick; //приняли снаружи
+        this._likes = likes;
+        this._handleDeleteClick = handleDeleteClick;
+          }
+
+    //Метод удаляет карточку из DOM
+
+    //вернет ID карточки
+
+    //удаяет класс на кнопке лайк
     _handleLikeCard = () => {
         this._likeButton.classList.toggle('element__button-like_active');
     };
 
-    _handleDeleteCard = () => {
-        this._cardElement.remove();
-        this._cardElement = null;
-    };
+    setLikes(newLike) {
+        this._likes = newLike;
+        const likeCountElement = this._cardElement.querySelector('.element__like-count')
+        likeCountElement.textContent = this._likes.length;
+    }
 
+    // _handleDeleteCard = () => {
+    //     this._cardElement.remove();
+    //     this._cardElement = null;
+    // };
+// button.addEventListener('click', card._handleDeleteCard())
+
+
+    //возвращает шаблон карточки из DOM
     _getTemplate() {
         const element = document.querySelector(this._cardSelector)
             .content
@@ -30,7 +47,7 @@ export class Card {
         this._cardImage.src = this._cardLink;
         this._cardImage.alt = this._cardName;
         this._cardTitle.textContent = this._cardName;
-
+        this.setLikes(this._likes);
         this._setEventListeners();
         return this._cardElement;
     }
@@ -44,10 +61,11 @@ export class Card {
             this._handleLikeCard();
         });
         this._deleteButton.addEventListener("click", () => {
-            this._handleDeleteCard();
+            this._handleDeleteClick();
         });
         this._cardImage.addEventListener("click", () => {
             this._handleCardClick(this._cardName, this._cardLink);
         });
     }
 }
+

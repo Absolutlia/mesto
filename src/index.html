@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
+    <link rel="shortcut icon" href="#">
   </head>
 
   <body class="body">
@@ -22,8 +23,8 @@
             />
             <div class="profile__user-info">
               <div class="profile__titles">
-                <h1 class="profile__title">Жак-Ив Кусто</h1>
-                <p class="profile__subtitle">Исследователь океана</p>
+                <h1 class="profile__title"></h1>
+                <p class="profile__subtitle"></p>
               </div>
               <button
                 type="button"
@@ -46,6 +47,8 @@
            
           </ul>
         </section>
+
+        <!-- template для карточек-->
         <section>
           <template class="card-template" id="template">
             <li class="element">
@@ -53,11 +56,14 @@
               <button class="element__trashbin" aria-label="Удалить"></button>
               <div class="element__sign">
                 <h2 class="element__title"></h2>
+                <div class = "element__like-container">
                 <button
                   type="button"
                   class="element__button-like"
                   aria-label="Добавить в избранное"
                 ></button>
+                <span class="element__like-count"></span>
+                </div>
               </div>
             </li>
           </template>
@@ -68,6 +74,7 @@
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
     </div>
+
     <!-- Форма 1 редактирование профиля -->
     <div id="edit_profile" class="popup popup_edit-profile">
       <div class="popup__container popup__container_profile`">
@@ -86,7 +93,7 @@
             name="name"
             type="text"
             value="Жак-Ив Кусто"
-            placeholder="Жак-Ив Кусто"
+            placeholder="Ваше имя"
             minlength="4"
             maxlength="20"
             required
@@ -167,6 +174,7 @@
       </div>
     </div>
 
+    <!-- попап для просмотра фотографии-->
     <div
       id="open_big"
       class="popup popup_open-image"
@@ -182,8 +190,31 @@
         <h2 class="popup__image-title"></h2>
       </div>
     </div>
-  
 
+    <!-- Форма удаления карточки -->
+    <div id="add_cards" class="popup popup_delete-card">
+      <div class="popup__container popup__delete-container">
+        <button
+          class="popup__close-button popup__close-button_card"
+          type="button"
+          id="popup-close-add-card"
+          aria-label="Закрыть форму добавления новой фотографии"
+        ></button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="popup__form popup__delete-cards" name="delete-image" novalidate>
+           <button
+            class="popup__submit-button popup__submit-button_delete-card"
+            type="submit"
+            aria-label="Создать"
+          >
+            Да
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+    
   </body>
 </html>
 

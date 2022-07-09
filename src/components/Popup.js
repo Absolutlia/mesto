@@ -2,8 +2,7 @@ export class Popup {
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector); //нашли попап
         this._handleEscClose = this._handleEscClose.bind(this); //потеря контекста
-        
-    }
+            }
 
     open() {
         this._popup.classList.add('popup_opened');
