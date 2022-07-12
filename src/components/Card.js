@@ -22,7 +22,7 @@ export class Card {
     };
 
     isLiked() {
-        const userHasLikedCard = this._likes.find(user => user._id === this._userId);
+        const userHasLikedCard = this._likes.some(user => user._id === this._userId);
         return userHasLikedCard;
     }
 
@@ -73,7 +73,7 @@ export class Card {
             this._deleteButton.style.display = 'none'
         }
 
-        const userHasLikeCard = this._likes.find(user => user._id === this._userId)
+        const userHasLikeCard = this._likes.some(user => user._id === this._userId)
         if (userHasLikeCard) {
             this._handleLikeIcon();
         }

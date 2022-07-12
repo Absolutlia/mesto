@@ -39,6 +39,21 @@ Promise.all([api.getProfile(), api.getInitialCards()])
     console.log(err)
   });
 
+api.getProfile()
+  .then(res => {
+    userId = res._id; //перезапись id 
+    userInfo.setUserInfo(res.name, res.about, res.avatar);
+  })
+
+api.getInitialCards()
+  .then(cardList => {
+    cardList.reverse();
+    cardList.forEach(data => {
+      const card = createCard(data.name, data.link, data.likes, data._id, userId, data.owner._id)
+      section.addItem(card)
+    })
+  })
+
 // ----PROFILE: информация о юзере ----
 const userInfo = new UserInfo({
   profileNameSelector: '.profile__title',
@@ -50,7 +65,7 @@ const userInfo = new UserInfo({
 
 const editProfilePopup = new PopupWithForm('#edit_profile', {
   handleSubmit: (data) => {
-    editProfilePopup.isLoading(true, 'Создать', 'Создание...')
+    editProfilePopup.isLoading(true)
     const { name, about, avatar } = data; //name, info
     api.editProfile(data['name'], data['info']) //name, info
       .then((res) => {
@@ -59,7 +74,7 @@ const editProfilePopup = new PopupWithForm('#edit_profile', {
       })
       .catch(err => console.log(`error: ${err}`))
       .finally(() => {
-        editProfilePopup.isLoading(false, 'Создать', 'Создание...')
+        editProfilePopup.isLoading(false)
       })
   }
 });
@@ -68,7 +83,7 @@ const editProfilePopup = new PopupWithForm('#edit_profile', {
 
 const avatarPopup = new PopupWithForm('.popup_avatar', {
   handleSubmit: (item) => {
-    avatarPopup.isLoading(true, 'Создать', 'Создание...');
+    avatarPopup.isLoading(true);
     api.changeAvatar(item.avatar)
       .then((res) => {
         userInfo.setAvatarInfo({ avatar: res.avatar });
@@ -78,7 +93,7 @@ const avatarPopup = new PopupWithForm('.popup_avatar', {
         console.log(err)
       })
       .finally(() => {
-        avatarPopup.isLoading(false, 'Создать', 'Создание...')
+        avatarPopup.isLoading(false)
       });
   }
 
@@ -144,12 +159,11 @@ const section = new Section({
     section.addItem(cardItem);
   }
 }, '.elements__list');
-section.renderItems();
 
 //форма добавления карточек
 const addCardPopup = new PopupWithForm('.popup_add-cards', {
   handleSubmit: (data) => {
-    addCardPopup.isLoading(true, 'Создать', 'Создание...')
+    addCardPopup.isLoading(true)
     api.addCard(data['image-name'], data['image-link'])
       .then((res) => {
         const card = createCard(res.name, res.link, res.likes, res._id, userId, res.owner._id);
@@ -160,7 +174,7 @@ const addCardPopup = new PopupWithForm('.popup_add-cards', {
         console.log(err)
       })
       .finally(() => {
-        addCardPopup.isLoading(false, 'Создать', 'Создание...')
+        addCardPopup.isLoading(false)
       })
   }
 })
