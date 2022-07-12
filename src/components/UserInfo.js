@@ -14,10 +14,10 @@ export class UserInfo {
     }
 
     //сохранить новые данные пользователя
-    setUserInfo(name, about, avatar) {
+    setUserInfo(name, about) {
         this._nameElement.textContent = name;
         this._jobElement.textContent = about;
-        this._itemAvatar.src = avatar
+        this._itemAvatar.src = avatar 
     }
 
    //сохранить аватар

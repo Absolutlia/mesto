@@ -4,14 +4,21 @@ export class Api {
         this._baseUrl = baseUrl;
     }
 
+    //обработка ответа от сервера 
+    _getResponseData(res) {
+        if (!res.ok) {
+            return Promise.reject(`Ошибка: ${res.status}`);
+        }
+        return res.json();
+    }
+
     //1. Загрузка информации о пользователе с сервера (get)
 
     getProfile() {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         })
-            .then(res => res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 
     //2. Загрузка карточек с сервера (get)
@@ -20,8 +27,7 @@ export class Api {
         return fetch(`${this._baseUrl}/cards`, {
             headers: this._headers
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 
     //3. редактирование профиля (PATCH) - запись новых данных
@@ -35,8 +41,7 @@ export class Api {
                 about
             })
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 
     //4.Добавление новой карточки (POST)
@@ -50,8 +55,7 @@ export class Api {
                 link
             })
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 
     //Удаление каротчки (DELETE) на сервере
@@ -61,8 +65,7 @@ export class Api {
             method: "DELETE",
             headers: this._headers,
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 
     //Установка лайка (PUT)
@@ -72,8 +75,7 @@ export class Api {
             method: "PUT",
             headers: this._headers,
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 
     //Удаление лайка (DELETE)
@@ -83,8 +85,7 @@ export class Api {
             method: "DELETE",
             headers: this._headers,
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 
 
@@ -94,11 +95,10 @@ export class Api {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                   avatar
+                avatar
             })
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
-            .catch(console.log)
+            .then(this._getResponseData)
     }
 }
 
