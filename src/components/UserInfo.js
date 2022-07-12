@@ -9,8 +9,7 @@ export class UserInfo {
     getUserInfo() {
         return {
             name: this._nameElement.textContent,
-            about: this._jobElement.textContent,
-           // avatar: this._itemAvatar.src
+            about: this._jobElement.textContent
         }
     }
 
@@ -21,8 +20,8 @@ export class UserInfo {
         this._itemAvatar.src = avatar
     }
 
-    //сохранить аватар
-    // setAvatarInfo(profileNewAvatar) {
-    //     this._avatar.src  = profileNewAvatar;
-    // }
+   //сохранить аватар
+    setAvatarInfo(profileNewAvatar) {
+        this._itemAvatar.src  = profileNewAvatar.avatar;
+    }
 }
