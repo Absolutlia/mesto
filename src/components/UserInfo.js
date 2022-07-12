@@ -20,14 +20,9 @@ export class UserInfo {
         this._jobElement.textContent = about;
         this._itemAvatar.src = avatar
     }
-}
+
     //сохранить аватар
-    // setAvatarInfo() {
-    //     this._avatar.src  = avatar;
+    // setAvatarInfo(profileNewAvatar) {
+    //     this._avatar.src  = profileNewAvatar;
     // }
-
-    // setAvatarInfo(profileAvatar) {
-    //     this._avatar.src  = profileAvatar.avatar;
-    // }
-
-
+}

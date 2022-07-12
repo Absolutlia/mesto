@@ -28,8 +28,8 @@ let userId = null;
 
 api.getProfile()
   .then(res => {
-    userInfo.setUserInfo(res.name, res.about, res.avatar);
     userId = res._id; //перезапись id
+    userInfo.setUserInfo(res.name, res.about, res.avatar);
   })
 
 api.getInitialCards()
@@ -70,10 +70,10 @@ const editProfilePopup = new PopupWithForm('#edit_profile', {
 
 const avatarPopup = new PopupWithForm('.popup_avatar', {
   handleSubmit: (item) => {
-    avatarPopup.isLoading(true, 'Создать', 'Создание...')
+    avatarPopup.isLoading(true, 'Создать', 'Создание...');
     api.changeAvatar(item.avatar)
       .then((res) => {
-        userInfo.setUserInfo({ avatar: res.avatar });
+        userInfo.setAvatarInfo({ avatar: res.avatar });
         avatarPopup.close();
       })
       .catch((err) => {
