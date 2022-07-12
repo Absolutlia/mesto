@@ -1,17 +1,33 @@
 export class UserInfo {
-    constructor({profileNameSelector, profileJobSelector}) {  
+    constructor({ profileNameSelector, profileJobSelector, avatarSelector }) {
         this._nameElement = document.querySelector(profileNameSelector);
         this._jobElement = document.querySelector(profileJobSelector);
+        this._itemAvatar = document.querySelector(avatarSelector);
     }
+
+    //забрать данные пользователя
     getUserInfo() {
         return {
             name: this._nameElement.textContent,
-            job: this._jobElement.textContent
+            about: this._jobElement.textContent,
+           // avatar: this._itemAvatar.src
         }
     }
 
-    setUserInfo(title, job) {
-        this._nameElement.textContent = title;
-        this._jobElement.textContent  = job;
+    //сохранить новые данные пользователя
+    setUserInfo(name, about, avatar) {
+        this._nameElement.textContent = name;
+        this._jobElement.textContent = about;
+        this._itemAvatar.src = avatar
     }
 }
+    //сохранить аватар
+    // setAvatarInfo() {
+    //     this._avatar.src  = avatar;
+    // }
+
+    // setAvatarInfo(profileAvatar) {
+    //     this._avatar.src  = profileAvatar.avatar;
+    // }
+
+

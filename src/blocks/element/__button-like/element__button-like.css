@@ -2,11 +2,11 @@
     width: 22px;
     height: 19px;
     margin: 0;
-    background-color: transparent;
-    background: url(./../../../images/heart.svg);
+    background-color: transparent; 
+    background-image: url(./../../../images/heart.svg);
     border: none;
+    outline: none;
     cursor: pointer;
-    box-sizing: border-box;
 }
 
 .element__button-like:hover {

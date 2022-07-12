@@ -6,6 +6,7 @@ export class PopupWithForm extends Popup {
         this._handleSubmit = handleSubmit;
         this._form = this._popup.querySelector('.popup__form');
         this._inputs = Array.from(this._form.querySelectorAll('.popup__input'));
+        this._submitButton = this._form.querySelector('.popup__submit-button');
 
     }
 
@@ -29,5 +30,15 @@ export class PopupWithForm extends Popup {
         super.close();
         this._form.reset();
     }
+
+    // .. Сохранение  ..
+    isLoading(loading, defaultText, loadingText) {
+        if (loading) {
+            this._submitButton.textContent = loadingText;
+        } else {
+            this._submitButton.textContent = defaultText;
+        }
+    }
+
 }
 

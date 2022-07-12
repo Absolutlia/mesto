@@ -1,8 +1,13 @@
 export const editProfileButton = document.querySelector(".profile__edit-button");
 export const addCardButton = document.querySelector(".profile__add-button");
 export const popupEditProfile = document.querySelector('.popup_edit-profile');
-export const formProfile = popupEditProfile.querySelector(".popup__form_profile");
+export const profileOpenAvatarButton = document.querySelector('.profile__button-avatar'); //кнопка открытия попапа с аватаром
+
+export const formProfile = popupEditProfile.querySelector(".popup__form_profile"); 
 export const formAddCard = document.querySelector(".popup__add-cards");
+export const formAvatar = document.querySelector(".popup__form_avatar");  //форма попапа аватара
+//export const avatarSubmitButton = formAvatar.querySelector('.popup__submit-button'); //submit смены аватара
+
 //template
 export const elementList = document.querySelector(".elements__list"); //изначальный список карточек ul
 export const cardSelector = document.querySelector('.card-template');
