@@ -15,5 +15,5 @@
     display: block;
     height: 282px;
     vertical-align: middle;
-
+    object-fit: cover;
 }
