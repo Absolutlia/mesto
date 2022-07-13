@@ -16,6 +16,7 @@ export class Api {
 
     getProfile() {
         return fetch(`${this._baseUrl}/users/me`, {
+            method: 'GET',
             headers: this._headers
         })
             .then(this._getResponseData)
@@ -90,12 +91,12 @@ export class Api {
 
 
     //Обновление аватара(PATCH)
-    changeAvatar(avatar) {
+    changeAvatar(item) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                avatar
+               avatar: item.avatar
             })
         })
             .then(this._getResponseData)

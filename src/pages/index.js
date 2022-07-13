@@ -25,24 +25,10 @@ export const imagePopup = new PopupWithImage('.popup_open-image');
 //получаем данные с сервера
 let userId = null;
 
-Promise.all([api.getProfile(), api.getInitialCards()])
-  .then(([userData, cardList]) => {
-    userId = userData._id; //перезапись id
-    userInfo.setUserInfo(userData.name, userData.about);
-    userInfo.setAvatarInfo(userData);
-    cardList.forEach(data => {
-      const card = createCard(data.name, data.link, data.likes, data._id, userId, data.owner._id)
-      section.addItem(card)
-    })
-  })
-  .catch((err) => {
-    console.log(err)
-  });
-
 api.getProfile()
   .then(res => {
     userId = res._id; //перезапись id 
-    userInfo.setUserInfo(res.name, res.about, res.avatar);
+    userInfo.setUserInfo(res);
   })
 
 api.getInitialCards()
@@ -64,12 +50,12 @@ const userInfo = new UserInfo({
 //форма редактирования профиля
 
 const editProfilePopup = new PopupWithForm('#edit_profile', {
-  handleSubmit: (data) => {
+  handleSubmit: (item) => {
     editProfilePopup.isLoading(true)
-    const { name, about, avatar } = data; //name, info
-    api.editProfile(data['name'], data['info']) //name, info
+    const { name, about} = item; //name, info
+    api.editProfile(item['name'], item['info']) //name, info
       .then((res) => {
-        userInfo.setUserInfo(res.name, res.about, res.avatar); //инпуты сохр
+        userInfo.setUserInfo(res); //инпуты сохр
         editProfilePopup.close();
       })
       .catch(err => console.log(`error: ${err}`))
@@ -84,9 +70,9 @@ const editProfilePopup = new PopupWithForm('#edit_profile', {
 const avatarPopup = new PopupWithForm('.popup_avatar', {
   handleSubmit: (item) => {
     avatarPopup.isLoading(true);
-    api.changeAvatar(item.avatar)
+    api.changeAvatar({avatar: item.avatar})
       .then((res) => {
-        userInfo.setAvatarInfo({ avatar: res.avatar });
+        userInfo.setUserInfo(res);
         avatarPopup.close();
       })
       .catch((err) => {
