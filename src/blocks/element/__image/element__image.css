@@ -14,5 +14,6 @@
     content: "Извините, изображение не загружено";
     display: block;
     height: 282px;
+    vertical-align: middle;
 
 }
