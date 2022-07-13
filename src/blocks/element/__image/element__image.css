@@ -13,6 +13,6 @@
 .element__image:before {
     content: "Извините, изображение не загружено";
     display: block;
-    
+    height: 282px;
 
 }
