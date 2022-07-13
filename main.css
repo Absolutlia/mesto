@@ -20,7 +20,7 @@
 .elements__list{grid-column-gap:17px;grid-row-gap:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(282px,1fr));justify-content:center;list-style:none;margin:0;padding:0}
 .element{background-color:#fff;border-radius:10px;min-height:361px;overflow:hidden;position:relative}@media screen and (max-width:767px){.element{margin:0 19px}}
 .element__trashbin{background-color:transparent;background-image:url(cbc09a894bdd4c956365.svg);border:none;height:19px;position:absolute;right:20px;top:20px;transition:opacity .3s ease-in-out;width:18px}.element__trashbin:hover{cursor:pointer;opacity:.6}
-.element__image{background-color:#2f4f4f;-o-object-fit:cover;object-fit:cover;width:100%}.element__image:hover{cursor:pointer;opacity:.8}.element__image:before{content:"Извините, изображение не загружено";display:block;vertical-align:middle}
+.element__image{background-color:#2f4f4f;height:282px;-o-object-fit:cover;object-fit:cover;width:100%}.element__image:hover{cursor:pointer;opacity:.8}.element__image:before{content:"Извините, изображение не загружено";display:block;height:282px;vertical-align:middle}
 .element__sign{align-items:center;display:flex;flex-wrap:nowrap;height:79px;justify-content:space-between}
 .element__title{color:#000;font-family:Inter,Arial,sans-serif;font-size:24px;font-style:normal;font-weight:900;letter-spacing:0;line-height:25.05px;margin-left:21px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .element__button-like{background-color:transparent;background-image:url(87ed371465c7a6a1cd01.svg);border:none;cursor:pointer;height:19px;margin:0;outline:none;width:22px}.element__button-like:hover{opacity:.5;transition:opacity .3s ease-in-out}
